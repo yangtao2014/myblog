@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yt.dao.IArcitleDao">
+	<insert id="insertArcitle">
+		insert into arcitle(aid,title,content,username,date,hasread,commend,imageurl)
+		values(#{aid},#{title},#{content},#{username},#{date},#{hasread},#{commend},#{imageurl})
+		<selectKey resultType="int" keyProperty="aid" order="AFTER">
+			select last_insert_id();
+		</selectKey>
+	</insert>
+	<select id="selectUserAllArcitleCount" resultType="int">
+		select count(*) from arcitle where username = #{name}
+	</select>
+	<select id="selectUserAllArcitle" resultType="Arcitle">
+		select * from arcitle where username = #{name}
+	</select>
+	<select id="selectUserArcitleById" resultType="Arcitle">
+		select *from arcitle where aid = #{aid}
+	</select>
+	<select id="selectUserPageArcitle" resultType="Arcitle">
+		select *from arcitle where username = #{0} limit #{1} , #{2}
+	</select>
+	<select id="selectAllUserSomeArcitle" resultType="Arcitle">
+		SELECT aid,title,left(strip_tags(trim(content)),100) as content,username,date,hasread,commend,imageurl from arcitle
+		order by aid DESC LIMIT 10
+	</select>
+	<select id="selectRandomArcitle" resultType="Arcitle">
+		select aid,title,left(strip_tags(trim(content)),100) as content,username,date,hasread,commend,imageurl from arcitle
+		order by aid DESC LIMIT #{page},10
+	</select>
+	<update id="updateArcitlehasread">
+		<!-- update arcitle set hasread = #{hasread} where aid = #{aid} 这样写出错,无法匹配,上面那个也是-->
+		update arcitle set hasread = #{0} where aid = #{1}
+	</update>
+	<select id="selectArcitleImageindex" resultType="int">
+		select LOCATE("src",content) from arcitle where aid = #{aid}
+	</select>
+	<select id="selectArcitleImagesrc" resultType="String">
+		select substring(content,#{0},62) from arcitle where aid = #{1}
+	</select>
+	<update id="updataArcitleImageurl">
+		update arcitle set imageurl = #{0} where aid = #{1}
+	</update>
+</mapper>
