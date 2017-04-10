@@ -86,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="post">
 			<div class="article">
 				<h1>${al.title }</h1>
-				<div class="author">by&nbsp;${al.username}&nbsp;日期:<fmt:formatDate type="both" value="${al.date}"/></div>
+				<div class="author">by&nbsp;${al.username}&nbsp;日期:<fmt:formatDate type="both" value="${al.date}"/>&nbsp;字数:${number}</div>
 			</div>
 			<div class="markdown-body">
 			${al.content}

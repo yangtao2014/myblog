@@ -22,4 +22,5 @@ public interface IArcitleDao {
 	int selectArcitleImageindex(int aid);
 	String selectArcitleImagesrc(int index,int aid);
 	void updataArcitleImageurl(String imageurl,int aid);
+	int selectArcitleNumberById(int aid);
 }

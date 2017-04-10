@@ -81,8 +81,10 @@ public class ArcitleController {
 	@RequestMapping("/showthis.do")
 	public ModelAndView showUserBlog(int aid){
 		Arcitle arcitle = service.findUserArcitleById(aid);
+		int number = service.findArcitleNumber(aid);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("al",arcitle);
+		mv.addObject("number",number);
 		mv.setViewName("/read.jsp");
 		return mv;
 	}

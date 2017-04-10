@@ -43,4 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updataArcitleImageurl">
 		update arcitle set imageurl = #{0} where aid = #{1}
 	</update>
+	<select id="selectArcitleNumberById" resultType="int">
+		select char_length(strip_tags(trim(content))) from arcitle where aid = #{aid}
+	</select>
 </mapper>

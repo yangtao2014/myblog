@@ -21,4 +21,5 @@ public interface IArcitleService {
 	int findArcitleImageindex(int aid);
 	String findArcitleImagesrc(int index,int aid);
 	void modifyArcitleImageurl(String imageurl,int aid);
+	int findArcitleNumber(int aid);
 }

@@ -55,4 +55,8 @@ public class ArcitleServiceImpl implements IArcitleService {
 	public void modifyArcitleImageurl(String imageurl,int aid) {
 		dao.updataArcitleImageurl(imageurl,aid);
 	}
+
+	public int findArcitleNumber(int aid) {
+		return dao.selectArcitleNumberById(aid);
+	}
 }
