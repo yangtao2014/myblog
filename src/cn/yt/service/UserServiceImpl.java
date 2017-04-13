@@ -22,5 +22,9 @@ public class UserServiceImpl implements IUserService {
 	public User findUserByName(String username) {
 		return dao.selectUserByName(username);
 	}
+
+	public void modifyAvatarByUsername(String avatar,String username) {
+		dao.updateAvatarByUsenname(avatar,username);
+	}
 	
 }

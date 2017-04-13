@@ -10,4 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectUserByName" resultType="User">
 		select *from User where username = #{name}
 	</select>
+	<update id="updateAvatarByUsenname">
+		update user set avatar = #{0} where username = #{1}
+	</update>
 </mapper>

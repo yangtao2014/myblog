@@ -10,4 +10,5 @@ import cn.yt.beans.User;
 public interface IUserDao {
 	void insertUser(User user);
 	User selectUserByName(String username);
+	void updateAvatarByUsenname(String avatar,String username);
 }

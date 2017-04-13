@@ -10,4 +10,5 @@ import cn.yt.beans.User;
 public interface IUserService {
 	void addUser(User user);
 	User findUserByName(String username);
+	void modifyAvatarByUsername(String avatar,String username);
 }

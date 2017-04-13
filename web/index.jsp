@@ -43,11 +43,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</a>
 					</li>
 					<li>
+						<a href="crop-avatar/avatar.jsp">
+							<i class="iconfont ic-avatar"></i>
+							<span>上传头像</span>
+						</a>
+					</li>
+					<li>
 						<a href="account/logout.do">
 							<i class="iconfont ic-exit"></i>
 							<span>退出</span>
 						</a>
 					</li>
+					
 				</ul>
 			</div>
 		</c:when>
